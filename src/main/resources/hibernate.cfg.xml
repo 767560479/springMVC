@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/shetuanjsp</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+       <!-- <mapping resource="com/entities/hydsh.xml"/>
+        <mapping class="com.entities.HydshEntity"/>-->
+        <!-- 链接数据库的用户名 -->
+        <!-- 链接数据库的密码 -->
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+        <property name="dialect">
+            org.hibernate.dialect.MySQLDialect
+        </property>
+        <property name="hibernate.current_session_context_class">
+            thread
+        </property>
+        <!--
+           validate 加载hibernate时，验证数据库的结构  默认值
+           update  加载hibernate时，检查数据库，如果表不存在，则创建，如果存在，则更新
+           create  每次加载hiberante,都会创建表
+           create-drop  每次加载hiberante,创建，卸载hiberante时，销毁
+       -->
+        <property name="hbm2ddl.auto">update</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+    </session-factory>
+</hibernate-configuration>
